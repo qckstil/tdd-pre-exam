@@ -1,0 +1,11 @@
+- validate one line string parsers input. has to be string
+- check the return value if its an array
+
+- validate multi line string parsers input. has to be string
+- check if return value is an array
+
+- make a string parser method.
+- make a get return value method.
+
+-
+-
