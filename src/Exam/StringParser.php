@@ -16,7 +16,10 @@ class StringParser
 	 */
 	public function parseOneLine($stringToParse)
 	{
-		$this->validateInput($stringToParse);
+		if (!$this->isValidInput($stringToParse))
+		{
+			throw new \InvalidArgumentException();
+		}
 
 		$parsedString = explode(',', $stringToParse);
 
@@ -30,20 +33,8 @@ class StringParser
 	 *
 	 * @return bool
 	 */
-	public function validateInput($string)
+	public function isValidInput($string)
 	{
-		$isValid = true;
-
-		if (empty($string))
-		{
-			$isValid = false;
-		}
-
-		if (!is_string($string))
-		{
-			$isValid = false;
-		}
-
-		return $isValid;
+		return !empty($string) && is_string($string);
 	}
 }
