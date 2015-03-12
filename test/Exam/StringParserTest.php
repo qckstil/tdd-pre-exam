@@ -104,12 +104,16 @@ class StringParserTest extends \PHPUnit_Framework_TestCase
 	 * Checks if the input string is valid for the multi line parsing.
 	 *
 	 * @param string $string           The input string.
-	 * @param array  $expectedResult   The expected result.
+	 * @param bool   $expectedResult   The expected result.
 	 *
-	 * @dataProvider multiLineStringDataProvider
+	 * @dataProvider multiLineStringValidateDataProvider
 	 */
-	public function testIfMultiLineInputStringIsValid($string, array $expectedResult)
+	public function testIfMultiLineInputStringIsValid($string, $expectedResult)
 	{
+		$parser         = new StringParser();
+		$validatedResult = $parser->isValidInput($string);
+
+		$this->assertEquals($expectedResult, $validatedResult);
 
 	}
 
@@ -118,16 +122,12 @@ class StringParserTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @return array
 	 */
-	public function multiLineStringDataProvider()
+	public function multiLineStringValidateDataProvider()
 	{
 		return array(
-			array(
-				'211,22,35' . PHP_EOL . '10,20,33',
-				array(
-					'211,22,35' => array('211', '22', '35'),
-					'10,20,33' => array('10', '20', '33')
-				)
-			)
+			array('211,22,35' . PHP_EOL . '10,20,33', true),
+			array(43243, false),
+			array(array(), false)
 		);
 	}
 }
