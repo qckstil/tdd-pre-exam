@@ -1,0 +1,7 @@
+*.name
+*.xml
+*.iml
+*.phar
+composer.json
+/vendor
+/.idea
