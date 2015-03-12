@@ -20,6 +20,10 @@ class StringParserTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testCheckIfOneLineInputStringIsValid($string, $expectedResult)
 	{
+		$parser         = new StringParser();
+		$validateResult = $parser->validateInput($string);
+
+		$this->assertEquals($expectedResult, $validateResult);
 	}
 
 	/**
@@ -50,7 +54,7 @@ class StringParserTest extends \PHPUnit_Framework_TestCase
 	{
 		$parser      = new StringParser();
 		$parsedArray = $parser->parseOneLine($string);
-		$this->assertEquals($parsedArray, $expectedResult);
+		$this->assertEquals($expectedResult, $parsedArray);
 	}
 
 	/**
