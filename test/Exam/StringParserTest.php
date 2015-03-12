@@ -1,5 +1,7 @@
 <?php
 
+namespace Tdd\Exam;
+
 /**
  * The class for testing the string parser class.
  *
@@ -15,7 +17,7 @@ class StringParserTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testCheckIfOneLineInputStringIsValid()
 	{
-
+		$parser = new StringParser();
 	}
 
 	/**
