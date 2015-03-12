@@ -14,11 +14,39 @@ class StringParserTest extends \PHPUnit_Framework_TestCase
 	 * Checks if the input string is valid for the one line parsing.
 	 *
 	 * @param string $string           The input string.
+	 * @param bool   $expectedResult   The expected result.
+	 *
+	 * @dataProvider oneLineStringValidatorDataProvider
+	 */
+	public function testCheckIfOneLineInputStringIsValid($string, $expectedResult)
+	{
+	}
+
+	/**
+	 * Data provider for the one line string parser.
+	 *
+	 * @return array
+	 */
+	public function oneLineStringValidatorDataProvider()
+	{
+		return array(
+			array('a,b,c', true),
+			array(543543, false),
+			array(array(), false),
+			array('Mark,Anthony,marka@lib.de', true),
+			array(new \stdClass(), false)
+		);
+	}
+
+	/**
+	 * Checks if the input string is valid for the one line parsing.
+	 *
+	 * @param string $string           The input string.
 	 * @param array  $expectedResult   The expected result.
 	 *
 	 * @dataProvider oneLineStringDataProvider
 	 */
-	public function testCheckIfOneLineInputStringIsValid($string, array $expectedResult)
+	public function testCheckIfOneLineParserReturnsValidArray($string, array $expectedResult)
 	{
 		$parser      = new StringParser();
 		$parsedArray = $parser->parseOneLine($string);
