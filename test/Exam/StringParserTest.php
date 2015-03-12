@@ -34,6 +34,7 @@ class StringParserTest extends \PHPUnit_Framework_TestCase
 	{
 		return array(
 			array('a,b,c', array('a', 'b', 'c')),
+			array('kecske,beka,lo,jo', array('kecske', 'beka', 'lo', 'jo')),
 			array('100,982,444,990,1', array('100', '982', '444', '990', '1')),
 			array('Mark,Anthony,marka@lib.de', array('Mark', 'Anthony', 'marka@lib.de'))
 		);
